@@ -1,2 +1,1 @@
-# maze-solver
-Python Maze Solver GUI
+IN DEVELOPMENT
