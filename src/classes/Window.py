@@ -4,7 +4,9 @@ from src.classes.Line import Line
 
 
 class Window:
-    def __init__(self, width: float, height: float, title: str) -> None:
+    def __init__(
+        self, width: float = 0.0, height: float = 0.0, title: str = 'Window'
+    ) -> None:
         self.root = Tk()
         self.root.title(title)
         self.root.protocol('WM_DELETE_WINDOW', self.close)
