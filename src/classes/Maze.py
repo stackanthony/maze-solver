@@ -1,5 +1,6 @@
 from src.classes.Cell import Cell
 from src.classes.Window import Window
+from typing import Optional
 import time
 
 
@@ -12,7 +13,7 @@ class Maze:
         num_cols: int,
         cell_size_x: float,
         cell_size_y: float,
-        win: Window,
+        win: Optional[Window] = None,
     ) -> None:
         self.x1 = x1
         self.y1 = y1
@@ -29,7 +30,11 @@ class Maze:
         for _ in range(self.num_rows):
             col_cells: list[Cell] = []
             for _ in range(self.num_cols):
-                col_cells.append(Cell(_win=self.win))
+                if self.win:
+                    col_cells.append(Cell(_win=self.win))
+                    continue
+
+                col_cells.append(Cell())
             cells.append(col_cells)
 
         self._cells = cells
@@ -51,5 +56,6 @@ class Maze:
         self._animate()
 
     def _animate(self):
-        self.win.redraw()
-        time.sleep(0.1)
+        if self.win:
+            self.win.redraw()
+            time.sleep(0.1)
