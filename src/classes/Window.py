@@ -1,4 +1,4 @@
-from tkinter import Tk, BOTH, Canvas
+from tkinter import Tk, Canvas
 
 from src.classes.Line import Line
 
@@ -29,3 +29,4 @@ class Window:
 
     def close(self):
         self.running = False
+        self.root.destroy()
